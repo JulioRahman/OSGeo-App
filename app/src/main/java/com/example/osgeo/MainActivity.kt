@@ -2,7 +2,6 @@ package com.example.osgeo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.osgeo.adapter.ProjectAdapter
 import com.example.osgeo.model.Project
@@ -30,6 +29,12 @@ class MainActivity : AppCompatActivity() {
         "GeoMoose is a Web Client JavaScript Framework for displaying distributed cartogr…",
         "GeoNetwork is a catalog application to manage spatially referenced resources. It…"
     )
+    private val listFrom = arrayOf(
+        2,
+        1,
+        2,
+        1
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         rvMain.layoutManager = LinearLayoutManager(this)
 
         for (i in listName.indices) {
-            list.add(Project(listName[i], listImage[i], listDesc[i]))
+            list.add(Project(listName[i], listImage[i], listDesc[i], listFrom[i]))
 
             if (listName.size - 1 == i) {
                 val adapter = ProjectAdapter(list)
